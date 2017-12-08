@@ -1,4 +1,5 @@
 #Instructions from Andrea Carlo Marini 
+#Remember to change "JSON" and "PUJSON" depending on the run era 
 
 OUT="Pileup.txt"
 JSON="/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions16/13TeV/ReReco//Final/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt"
