@@ -120,9 +120,9 @@ void efficiency(const std::vector<std::string>& dirNames)
   // TTree *t[20]; //comsists of a list of independent branches (Tbranch); one or multiple branches
   char nameFile[50]; //refers to a block of characters?
  
-  //Int_t numVertex; //The number of vertices in the event.
  
-  Int_t numVertex=0;
+  Int_t numVertex = 0; //The number of vertices in the event
+  Int_t npv       = 0;     //Number of PU from PileupInfo
   Float_t diMuonC_Mass;//allows for effective use of architecture with wider formats
   Float_t diMuonF_Mass;
   Bool_t  is1GenMu17;
@@ -239,6 +239,7 @@ void efficiency(const std::vector<std::string>& dirNames)
 	//   f[15] = new TFile("out_ana_reco.root");
 	// 5) allocate var to branch
                 t->SetBranchAddress("numVertex",&numVertex);
+                t->SetBranchAddress("npv",&npv);
 		t->SetBranchAddress("diMuonC_FittedVtx_m",&diMuonC_Mass);
 		t->SetBranchAddress("diMuonF_FittedVtx_m",&diMuonF_Mass);
 		t->SetBranchAddress("nRecoMu",&nRecoMu);
@@ -289,7 +290,7 @@ void efficiency(const std::vector<std::string>& dirNames)
 		for(int i=0;i<nentries;i++){ //loop for number of events
 		  t->GetEntry(i);
 		  //cout<<"i is "<<i<<endl;
-		  counter[k][0] = counter[k][0] + weight_array[numVertex];
+		  counter[k][0] = counter[k][0] + weight_array[npv];
 		  // cout<<" dimuonC_Iso  "<<diMuonC_IsoTk_FittedVtx<<endl;
 		  // cout<<" dimuonF_Iso  "<<diMuonF_IsoTk_FittedVtx<<endl;
 		  
@@ -311,40 +312,40 @@ void efficiency(const std::vector<std::string>& dirNames)
 		    }
 		  }
 		  
-		  if(is1GenMu17)counter[k][1] = counter[k][1] + weight_array[numVertex];
-		  if(is2GenMu8) counter[k][2] = counter[k][2] + weight_array[numVertex];
-		  if(is3GenMu8) counter[k][3] = counter[k][3] + weight_array[numVertex];
+		  if(is1GenMu17)counter[k][1] = counter[k][1] + weight_array[npv];
+		  if(is2GenMu8) counter[k][2] = counter[k][2] + weight_array[npv];
+		  if(is3GenMu8) counter[k][3] = counter[k][3] + weight_array[npv];
 		  if(is4GenMu8){
-		    counter[k][4] = counter[k][4] + weight_array[numVertex];
-		    if( (genA0_Lxy<9.8&&fabs(genA0_Lz)<46.5) && (genA1_Lxy<9.8&&fabs(genA1_Lz)<46.5)){ counter[k][5] = counter[k][5] + weight_array[numVertex];}
-		    //if( (genA0_Lxy<9.8&&fabs(genA0_Lz)<48.5) && (genA1_Lxy<9.8&&fabs(genA1_Lz)<48.5)){ counter[k][5] = counter[k][5] + weight_array[numVertex];}
+		    counter[k][4] = counter[k][4] + weight_array[npv];
+		    if( (genA0_Lxy<9.8&&fabs(genA0_Lz)<46.5) && (genA1_Lxy<9.8&&fabs(genA1_Lz)<46.5)){ counter[k][5] = counter[k][5] + weight_array[npv];}
+		    //if( (genA0_Lxy<9.8&&fabs(genA0_Lz)<48.5) && (genA1_Lxy<9.8&&fabs(genA1_Lz)<48.5)){ counter[k][5] = counter[k][5] + weight_array[npv];}
 		  }
 		  
-		  if(is1SelMu17)counter[k][6] = counter[k][6] + weight_array[numVertex];
-		  if(is2SelMu8) counter[k][7] = counter[k][7] + weight_array[numVertex];
-		  if(is3SelMu8) counter[k][8] = counter[k][8] + weight_array[numVertex];
+		  if(is1SelMu17)counter[k][6] = counter[k][6] + weight_array[npv];
+		  if(is2SelMu8) counter[k][7] = counter[k][7] + weight_array[npv];
+		  if(is3SelMu8) counter[k][8] = counter[k][8] + weight_array[npv];
 		  if(is4SelMu8){
-		    counter[k][9] = counter[k][9] + weight_array[numVertex];
+		    counter[k][9] = counter[k][9] + weight_array[npv];
 		  
 		  if(isVtxOK){
-		     counter[k][10] = counter[k][10] + weight_array[numVertex];
+		     counter[k][10] = counter[k][10] + weight_array[npv];
 		    if(is2MuJets){
-		      counter[k][11] = counter[k][11] + weight_array[numVertex];
+		      counter[k][11] = counter[k][11] + weight_array[npv];
 		      if(is2DiMuons){
 
 			diMuons_dz->Fill(diMuons_dz_FittedVtx);
-			 counter[k][12] = counter[k][12] + weight_array[numVertex];
+			 counter[k][12] = counter[k][12] + weight_array[npv];
 			if( (diMuonC_m1_FittedVtx_hitpix_l3inc==1||diMuonC_m2_FittedVtx_hitpix_l3inc==1) &&
 			    (diMuonF_m1_FittedVtx_hitpix_l3inc==1||diMuonF_m2_FittedVtx_hitpix_l3inc==1)){
-			  counter[k][13] = counter[k][13] + weight_array[numVertex];
+			  counter[k][13] = counter[k][13] + weight_array[npv];
 			  if( fabs(diMuons_dz_FittedVtx)<0.1){
-			    counter[k][14] = counter[k][14] + weight_array[numVertex];
+			    counter[k][14] = counter[k][14] + weight_array[npv];
 			    if(is2DiMuonsMassOK){
-			      counter[k][15] = counter[k][15] + weight_array[numVertex];
+			      counter[k][15] = counter[k][15] + weight_array[npv];
 			      if(diMuonC_IsoTk_FittedVtx<2.0 && diMuonF_IsoTk_FittedVtx<2.0){
-				counter[k][16] = counter[k][16] + weight_array[numVertex];
+				counter[k][16] = counter[k][16] + weight_array[npv];
 				if(is2DiMuonHLTFired){
-				  counter[k][17] = counter[k][17] + weight_array[numVertex];
+				  counter[k][17] = counter[k][17] + weight_array[npv];
 				}
 			      }
 			    }
