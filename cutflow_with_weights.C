@@ -31,7 +31,7 @@ Float_t epsvalp[20]={0.0};
 Float_t epsvalp2[20]={0.0};
 
 
-
+//--------- 50% shifts----------//
 std::array<float,75> weight_array_shift1 = {0.00E+00, 6.96E-01, 4.87E-01, 5.94E-01, 8.13E-01, 7.76E-01, 5.85E-01, 3.38E-01, 5.47E-01, 5.31E-01, 4.88E-01, 5.47E-01, 6.27E-01, 7.19E-01, 7.63E-01, 7.92E-01, 8.41E-01, 8.92E-01, 9.18E-01, 9.35E-01, 9.57E-01, 9.79E-01, 1.01E+00, 1.03E+00, 1.05E+00, 1.07E+00, 1.10E+00, 1.11E+00, 1.12E+00, 1.14E+00, 1.13E+00, 1.15E+00, 1.14E+00, 1.14E+00, 1.14E+00, 1.13E+00, 1.11E+00, 1.11E+00, 1.10E+00, 1.10E+00, 1.08E+00, 1.08E+00, 1.09E+00, 1.09E+00, 1.13E+00, 1.13E+00, 1.13E+00, 1.19E+00, 1.21E+00, 1.25E+00, 1.27E+00, 1.33E+00, 1.36E+00, 1.37E+00, 1.51E+00, 1.56E+00, 1.50E+00, 1.55E+00, 1.59E+00, 1.51E+00, 1.75E+00, 1.43E+00, 1.29E+00, 1.17E+00, 1.20E+00, 1.06E+00, 1.00E+00, 9.93E-01, 1.02E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.01E+00, 1.00E+00};
 
 std::array<float,75> weight_array_shift2 = {0.00E+00, 0.00E+00, 3.39E-01, 2.89E-01, 4.83E-01, 6.31E-01, 4.54E-01, 1.98E-01, 1.85E-01, 2.90E-01, 2.59E-01, 2.67E-01, 3.43E-01, 4.50E-01, 5.48E-01, 6.04E-01, 6.67E-01, 7.50E-01, 8.18E-01, 8.58E-01, 8.95E-01, 9.37E-01, 9.89E-01, 1.04E+00, 1.08E+00, 1.13E+00, 1.18E+00, 1.21E+00, 1.24E+00, 1.28E+00, 1.28E+00, 1.30E+00, 1.31E+00, 1.30E+00, 1.30E+00, 1.28E+00, 1.26E+00, 1.23E+00, 1.21E+00, 1.21E+00, 1.18E+00, 1.16E+00, 1.17E+00, 1.19E+00, 1.23E+00, 1.28E+00, 1.28E+00, 1.34E+00, 1.43E+00, 1.51E+00, 1.59E+00, 1.68E+00, 1.80E+00, 1.86E+00, 2.07E+00, 2.35E+00, 2.34E+00, 2.33E+00, 2.47E+00, 2.40E+00, 2.64E+00, 2.51E+00, 1.84E+00, 1.51E+00, 1.41E+00, 1.27E+00, 1.06E+00, 9.93E-01, 1.01E+00, 1.02E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.01E+00, 1.01E+00}; 
@@ -44,18 +44,20 @@ std::array<float,75> weight_array_shift8 = {0.00E+00, 0.00E+00, 0.00E+00, 0.00E+
 
 std::array<float,75> weight_array_shift10 = {0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 3.56E-03, 2.79E-03, 3.60E-03, 4.36E-03, 4.09E-03, 4.17E-03, 6.00E-03, 1.58E-02, 2.65E-02, 4.67E-02, 9.17E-02, 1.64E-01, 2.65E-01, 3.80E-01, 5.23E-01, 7.08E-01, 9.22E-01, 1.15E+00, 1.40E+00, 1.71E+00, 2.01E+00, 2.36E+00, 2.66E+00, 2.95E+00, 3.19E+00, 3.35E+00, 3.40E+00, 3.40E+00, 3.32E+00, 3.20E+00, 3.06E+00, 2.86E+00, 2.73E+00, 2.61E+00, 2.59E+00, 2.61E+00, 2.64E+00, 2.84E+00, 3.12E+00, 3.56E+00, 4.20E+00, 5.18E+00, 6.46E+00, 8.12E+00, 1.09E+01, 1.50E+01, 1.99E+01, 2.60E+01, 3.42E+01, 4.13E+01, 5.68E+01, 6.14E+01, 5.81E+01, 4.97E+01, 3.95E+01, 2.69E+01, 1.79E+01, 1.15E+01, 7.37E+00, 4.88E+00, 2.79E+00, 1.95E+00, 1.51E+00, 1.30E+00, 1.08E+00};
 
-
-
 std::array<float,75> weight_array_default = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; 
 
 std::array<float,75> weight_array_allzero = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+
+//--------5% Shifts--------//
 std::array<float,75> weight_array_PUC_nominal = {0.00E+00, 2.55E-01, 4.35E-01, 7.12E-01, 7.82E-01, 8.71E-01, 6.82E-01, 2.69E-01, 2.72E-01, 3.94E-01, 4.29E-01, 5.28E-01, 6.73E-01, 8.10E-01, 8.98E-01, 9.50E-01, 1.02E+00, 1.07E+00, 1.08E+00, 1.07E+00, 1.05E+00, 1.04E+00, 1.06E+00, 1.09E+00, 1.10E+00, 1.13E+00, 1.16E+00, 1.19E+00, 1.21E+00, 1.25E+00, 1.25E+00, 1.26E+00, 1.23E+00, 1.19E+00, 1.12E+00, 1.03E+00, 9.14E-01, 7.93E-01, 6.70E-01, 5.54E-01, 4.36E-01, 3.34E-01, 2.48E-01, 1.79E-01, 1.27E-01, 8.77E-02, 5.77E-02, 3.80E-02, 2.43E-02, 1.53E-02, 9.44E-03, 5.81E-03, 3.55E-03, 2.15E-03, 1.47E-03, 1.14E-03, 1.01E-03, 1.13E-03, 1.51E-03, 2.05E-03, 3.31E-03, 4.41E-03, 5.28E-03, 5.72E-03, 6.34E-03, 6.09E-03, 5.56E-03, 4.93E-03, 4.52E-03, 4.02E-03, 3.55E-03, 3.11E-03, 2.70E-03, 2.36E-03, 2.02E-03};
 
 std::array<float,75> weight_array_PUC_up = {0.00E+00, 2.48E-01, 3.35E-01, 6.69E-01, 6.80E-01, 7.85E-01, 6.08E-01, 2.44E-01, 1.86E-01, 2.56E-01, 2.85E-01, 3.34E-01, 4.44E-01, 5.79E-01, 6.80E-01, 7.46E-01, 8.17E-01, 9.00E-01, 9.55E-01, 9.74E-01, 9.78E-01, 9.79E-01, 1.00E+00, 1.04E+00, 1.09E+00, 1.14E+00, 1.19E+00, 1.24E+00, 1.30E+00, 1.37E+00, 1.40E+00, 1.45E+00, 1.46E+00, 1.46E+00, 1.42E+00, 1.36E+00, 1.26E+00, 1.14E+00, 1.00E+00, 8.73E-01, 7.29E-01, 5.96E-01, 4.82E-01, 3.79E-01, 2.98E-01, 2.29E-01, 1.68E-01, 1.25E-01, 9.08E-02, 6.56E-02, 4.62E-02, 3.26E-02, 2.26E-02, 1.52E-02, 1.09E-02, 7.81E-03, 5.39E-03, 4.02E-03, 3.41E-03, 3.28E-03, 4.36E-03, 5.34E-03, 6.24E-03, 6.80E-03, 7.66E-03, 7.51E-03, 7.02E-03, 6.39E-03, 6.01E-03, 5.49E-03, 4.98E-03, 4.48E-03, 4.01E-03, 3.61E-03, 3.18E-03};
 
 std::array<float,75> weight_array_PUC_down = {0.00E+00, 2.65E-01, 5.66E-01, 7.52E-01, 9.03E-01, 9.80E-01, 7.55E-01, 3.17E-01, 4.37E-01, 6.00E-01, 6.78E-01, 8.43E-01, 9.87E-01, 1.10E+00, 1.17E+00, 1.21E+00, 1.23E+00, 1.23E+00, 1.20E+00, 1.15E+00, 1.12E+00, 1.11E+00, 1.10E+00, 1.10E+00, 1.09E+00, 1.09E+00, 1.10E+00, 1.10E+00, 1.10E+00, 1.09E+00, 1.06E+00, 1.03E+00, 9.71E-01, 8.98E-01, 8.09E-01, 7.10E-01, 6.02E-01, 4.94E-01, 3.91E-01, 3.00E-01, 2.16E-01, 1.50E-01, 1.00E-01, 6.39E-02, 4.01E-02, 2.41E-02, 1.37E-02, 7.80E-03, 4.29E-03, 2.35E-03, 1.27E-03, 7.17E-04, 4.48E-04, 3.35E-04, 3.45E-04, 4.37E-04, 5.83E-04, 8.33E-04, 1.23E-03, 1.71E-03, 2.76E-03, 3.60E-03, 4.21E-03, 4.45E-03, 4.79E-03, 4.47E-03, 3.96E-03, 3.41E-03, 3.03E-03, 2.61E-03, 2.23E-03, 1.89E-03, 1.59E-03, 1.34E-03, 1.11E-03};
 
+
+//--- 50% shift up ---//
 //std::array<float,75> weight_array = weight_array_default;
 //std::array<float,75> weight_array = weight_array_shift2;
 //std::array<float,75> weight_array = weight_array_shift3;
@@ -63,10 +65,12 @@ std::array<float,75> weight_array_PUC_down = {0.00E+00, 2.65E-01, 5.66E-01, 7.52
 //std::array<float,75> weight_array = weight_array_shift6;
 //std::array<float,75> weight_array = weight_array_shift8;
 //std::array<float,75> weight_array = weight_array_shift10;
-
 //std::array<float,75> weight_array = weight_array_allzero;
 //std::array<float,75> weight_array = weight_array_default;
 
+
+
+//--- 5% shifts up and down in pileupCalc.py, MC distribution from mix_2016_25ns_Morion17MC_PoissonOOTPU_cfi ----//
 //std::array<float,75> weight_array = weight_array_PUC_nominal;
 //std::array<float,75> weight_array = weight_array_PUC_up;
 std::array<float,75> weight_array = weight_array_PUC_down;
@@ -86,9 +90,6 @@ for(int i=0;i<20;i++){
 }
 
 int k = -1;
-
-
-
 
 
 void efficiency(const std::vector<std::string>& dirNames)
@@ -121,9 +122,9 @@ void efficiency(const std::vector<std::string>& dirNames)
   char nameFile[50]; //refers to a block of characters?
  
  
-  Int_t numVertex = 0; //The number of vertices in the event
-  Int_t npv       = 0;     //Number of PU from PileupInfo
-  Float_t diMuonC_Mass;//allows for effective use of architecture with wider formats
+  Int_t numVertex = 0;	//The number of vertices in the event
+  Int_t npv       = 0;  //Number of PU from PileupInfo
+  Float_t diMuonC_Mass;	//allows for effective use of architecture with wider formats
   Float_t diMuonF_Mass;
   Bool_t  is1GenMu17;
   Bool_t  is2GenMu8;
@@ -222,7 +223,7 @@ void efficiency(const std::vector<std::string>& dirNames)
 		//   TTree *t[20];
 		
 		//   f[0] = new TFile("DarkSUSY_mH_125_mGammaD_0700_8TeV-madgraph452_bridge224_LHE_pythia6537p4_PAT_v1_10000.root");
-//   f[1] = new TFile("DarkSUSY_mH_125_mGammaD_0700_ctauExp_02_8TeV-madgraph452_bridge224_LHE_pythia6_5374_PAT_v1_10000.root");
+                //   f[1] = new TFile("DarkSUSY_mH_125_mGammaD_0700_ctauExp_02_8TeV-madgraph452_bridge224_LHE_pythia6_5374_PAT_v1_10000.root");
 		//   f[2] = new TFile("DarkSUSY_mH_125_mGammaD_0700_ctauExp_05_8TeV-madgraph452_bridge224_LHE_pythia6_537p4_PAT_v1_10000.root");
 		//   f[3] = new TFile("DarkSUSY_mH_125_mGammaD_0700_ctauExp_2_8TeV-madgraph452_bridge224_LHE_pythia6_537p4_PAT_v1_10000.root");
 		//   f[4] = new TFile("DarkSUSY_mH_125_mGammaD_0700_ctauExp_5_8TeV-madgraph452_bridge224_LHE_pythia6_537p4_PAT_v1_10000.root");
@@ -236,7 +237,8 @@ void efficiency(const std::vector<std::string>& dirNames)
 		//   f[12] = new TFile("DarkSUSY_mH_125_mGammaD_0250_ctauExp_3_8TeV-madgraph452_bridge224_LHE_pythia6_537p4_PAT_v1_10000.root");
 		//   f[13] = new TFile("DarkSUSY_mH_125_mGammaD_0250_ctauExp_5_8TeV-madgraph452_bridge224_LHE_pythia6_537p4_PAT_v1_10000.root");
 		//   f[14] = new TFile("ana.root");
-	//   f[15] = new TFile("out_ana_reco.root");
+	        //   f[15] = new TFile("out_ana_reco.root");
+
 	// 5) allocate var to branch
                 t->SetBranchAddress("numVertex",&numVertex);
                 t->SetBranchAddress("npv",&npv);
