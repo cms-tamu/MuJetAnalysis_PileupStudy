@@ -1,0 +1,1 @@
+pileupCalc.py -i $JSON --inputLumiJSON $PUJSON  --calcMode true --minBiasXsec 69200 --maxPileupBin 100 --numPileupBins 100  --pileupHistName=PUpileupNominal pileupNominal.root
