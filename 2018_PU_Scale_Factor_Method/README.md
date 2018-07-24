@@ -11,6 +11,6 @@
   * Before: divide then normalize
   * Now: normalize then divide (Previous procedure may have been when “MC” range is extremely short)
 5. Calculate alpha
-  * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+  * ![alt text](https://github.com/cms-tamu/PileupStudy/blob/master/2018_PU_Scale_Factor_Method/Equation.png "Equation for Alpha")
   * Not strictly needed since normalization has already occurred
   * Serves as cross-check on step 4
