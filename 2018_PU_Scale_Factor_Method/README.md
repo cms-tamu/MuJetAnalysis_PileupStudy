@@ -1,6 +1,7 @@
 # Placeholder
 1. Generate nominal, +5%, and -5% data distribution with pileupCalc.py
   * Settings for 2016 at https://twiki.cern.ch/twiki/bin/view/CMS/PileupJSONFileforData#Pileup_JSON_Files_For_Run_II
+  * .sh files have been included in this repo; command lines are in "inst.txt" files. 
   * pileupCalc.py generates histogram in root file, use hist->Print(“all”) 
 2. Taked MC disribution from mixing file mix_2016_25ns_Moriond17MC_PoissonOOTPU_cfi
 3. Match the domains of the two distributions, normalize
@@ -15,3 +16,4 @@
   * Where "pu" isthe number of pileup events, "MC_{truth}" is taken from the mixing file, and "r" was calculated in step 4
   * Not strictly needed since normalization has already occurred
   * Serves as cross-check on step 4
+6. Use "r" to to calculate reweighted efficiency for up, down, and nominal
