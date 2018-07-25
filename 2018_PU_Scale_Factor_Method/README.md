@@ -1,6 +1,7 @@
 # Instructions
 
-## Create Area
+## Create CMSSW Area
+The pileup study requires access to the amount of pileup in each event (from PileupSummaryInfo); this is not included in our standard MC generation for HIG-18-003 (AN-16-455). Checkout the PileupStudy branch to remedy this. 
 ~~~~
 export SCRAM_ARCH=slc6_amd64_gcc493
 source /cvmfs/cms.cern.ch/cmsset_default.sh 
@@ -19,9 +20,10 @@ cd ../
 scram b
 ~~~~
 
+## Generate Signal MC
+Follow steps for generating signal MC listed in the twiki using the above CMSSW area for the PAT ANA step.
 
 ## Modify Cutflow Table Producer
-0. Generate signal MC with 
 1. Generate nominal, +5%, and -5% data distribution with pileupCalc.py
   * Settings for 2016 at https://twiki.cern.ch/twiki/bin/view/CMS/PileupJSONFileforData#Pileup_JSON_Files_For_Run_II
   * .sh files have been included in this repo; command lines are in "inst.txt" files. 
@@ -39,5 +41,6 @@ scram b
   * Where "pu" isthe number of pileup events, "MC_{truth}" is taken from the mixing file, and "r" was calculated in step 4
   * Not strictly needed since normalization has already occurred
 6. Edit cutflow table producers to include LUT for each of the three r as arrays
-7. Use LUT to reweight each event according to their PU value
+7. Use LUTs to reweight each event according to their PU value
 8. Run cutflow table producers
+9. Compare epislon/alpha outputs to estimate PU uncertainty 
