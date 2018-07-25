@@ -1,4 +1,26 @@
-# Modify Cutflow Table Producer
+# Instructions
+
+## Create Area
+~~~~
+export SCRAM_ARCH=slc6_amd64_gcc493
+source /cvmfs/cms.cern.ch/cmsset_default.sh 
+source /cvmfs/cms.cern.ch/crab3/crab.sh
+cmsrel CMSSW_8_0_20
+cd CMSSW_8_0_20/src/
+cmsenv
+git cms-init
+git cms-merge-topic --unsafe cms-tamu:from-CMSSW_8_0_20-tamu-muonjet-physics-analysis
+git cms-addpkg DataFormats/TrackReco
+git cms-addpkg GeneratorInterface/GenFilters
+git submodule add git@github.com:cms-tamu/MuJetAnalysis.git
+cd MuJetAnalysis
+git checkout -b for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy origin/for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy
+cd ../
+scram b
+~~~~
+
+
+## Modify Cutflow Table Producer
 0. Generate signal MC with 
 1. Generate nominal, +5%, and -5% data distribution with pileupCalc.py
   * Settings for 2016 at https://twiki.cern.ch/twiki/bin/view/CMS/PileupJSONFileforData#Pileup_JSON_Files_For_Run_II
@@ -18,24 +40,4 @@
   * Not strictly needed since normalization has already occurred
 6. Edit cutflow table producers to include LUT for each of the three r as arrays
 7. Use LUT to reweight each event according to their PU value
-8. Run cutflow table producers, record co
-
-
-# Create Area
-~~~~
-export SCRAM_ARCH=slc6_amd64_gcc493
-source /cvmfs/cms.cern.ch/cmsset_default.sh 
-source /cvmfs/cms.cern.ch/crab3/crab.sh
-cmsrel CMSSW_8_0_20
-cd CMSSW_8_0_20/src/
-cmsenv
-git cms-init
-git cms-merge-topic --unsafe cms-tamu:from-CMSSW_8_0_20-tamu-muonjet-physics-analysis
-git cms-addpkg DataFormats/TrackReco
-git cms-addpkg GeneratorInterface/GenFilters
-git submodule add git@github.com:cms-tamu/MuJetAnalysis.git
-cd MuJetAnalysis
-git checkout -b for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy origin/for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy
-cd ../
-scram b
-~~~~
+8. Run cutflow table producers
