@@ -22,7 +22,8 @@
 
 
 # Create Area
-~~~export SCRAM_ARCH=slc6_amd64_gcc493
+~~~~
+export SCRAM_ARCH=slc6_amd64_gcc493
 source /cvmfs/cms.cern.ch/cmsset_default.sh 
 source /cvmfs/cms.cern.ch/crab3/crab.sh
 cmsrel CMSSW_8_0_20
@@ -36,4 +37,5 @@ git submodule add git@github.com:cms-tamu/MuJetAnalysis.git
 cd MuJetAnalysis
 git checkout -b for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy origin/for-CMSSW-80X-NoPHR-RAWAODSIM-PileupStudy
 cd ../
-scram b~~~
+scram b
+~~~~
