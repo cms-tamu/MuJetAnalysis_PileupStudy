@@ -108,7 +108,7 @@ def calPU(year):
   nom = [rwH[0].GetBinContent(x+1) for x in range(nBins)]
   up = [rwH[1].GetBinContent(x+1) for x in range(nBins)]
   dn = [rwH[2].GetBinContent(x+1) for x in range(nBins)]
-  outF = file("pu{}reWeigt.py".format(year),"w")
+  outF = file("pu{}reWeight.py".format(year),"w")
 
   outF.write("nom = [")
   for x in nom: 
