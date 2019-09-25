@@ -5,9 +5,13 @@ cmsrel CMSSW_10_6_2
 cd CMSSW_10_6_2/src
 cmsenv
 git clone git@github.com:cms-tamu/MuJetAnalysis_PileupStudy.git
-cd Run2PU
+cd MuJetAnalysis_PileupStudy/Run2PU
 ./puCal.py
 ```
+Calculation reference:
+
+https://github.com/cms-sw/cmssw/blob/master/PhysicsTools/Utilities/src/LumiReWeighting.cc
+
 ## Edit input variable
 All input variables are in puCalInPut.py
 ### Cross-section setting
